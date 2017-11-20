@@ -1,0 +1,54 @@
+<h2 class="page-header">REPORT</h2>
+<div ng-app="showInformation" ng-controller="show">
+        <button ng-click="exportData()">Export</button>
+    <br />
+        <div>
+            
+            Start Date:
+            <input type="datetime-local" id="date1" name="date1" ng-model="date1"> 
+            End Date:
+            <input type="datetime-local" id="date2" name="date2" ng-model="date2">
+            
+            <input type="button" value="Submit" ng-click="send()">
+            <br>
+        </div>
+
+        <div id="exportable">
+            <table class = "table table-bordered table-hover">
+                <thead>
+                    <tr> 
+                        <td>
+                            <center>STT</center> 
+                        </td >
+                        <td ng-click="sortData('MAC')">
+                            <center>MAC</center> <div ng-class="getSortClass('MAC')"></div>
+                        </td >
+                        <td ng-click="sortData('IP')">
+                            <center>IP</center> <div ng-class="getSortClass('IP')"></div>
+                        </td>
+                        <td ng-click="sortData('name')">
+                            <center>Name</center> <div ng-class="getSortClass('name')"></div>
+                        </td>
+                        <td ng-click="sortData('createdDate')">
+                            <center>Time</center> <div ng-class="getSortClass('createdDate')"></div>
+                        </td>
+                        <td ng-click="sortData('fail')">
+                            <center>Packet Lost</center> <div ng-class="getSortClass('fail')"></div>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="data in datas | orderBy: sortColumn: reverse">
+                        <td>{[{$index+1}]}</td>
+                        <td>{[{data.MAC}]}</td>
+                        <td>{[{data.IP}]}</td>
+                        <td>{[{data.name}]}</td>
+                        <td>{[{data.createdDate| date:'dd/MM/yyyy - HH:mm:ss'}]}</td>
+                        <td>{[{data.fail}]}</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>

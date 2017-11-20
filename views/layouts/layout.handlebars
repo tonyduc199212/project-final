@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>{{title}}</title>
+
+
+
+  <script src="/js/jquery.js"></script>
+  <script src="/js/angular.js"></script>
+  <script src="/js/angular-cookies.js"></script>
+  <script src="/js/bootstrap.js"></script> 
+  {{#each js}}
+  <script src="/js/{{this}}"></script> 
+  {{/each}}
+
+  <link rel="stylesheet" href="/css/bootstrap.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="header clearfix">
+      <nav>
+        <ul class="nav nav-pills pull-right">
+          {{#if user}}
+          <li role="presentation">
+            <a href="/">Home</a>
+          </li>
+          <li role="presentation">
+            <a href="/api/device">Devices</a>
+          </li>
+          <li role="presentation">
+            <a href="/api/information">Report</a>
+          </li>
+          <li role="presentation">
+            <a href="/api/manage">Manage</a>
+          </li>
+          <li role="presentation">
+            <a href="/users/register">Register</a>
+          </li>          
+          <li role="presentation">
+            <a href="/users/logout">Logout</a>
+          </li>
+          {{else}}         
+          <li role="presentation">
+            <a href="/users/login">Login</a>
+          </li>
+
+          {{/if}}
+        </ul>
+      </nav>
+      <h3 class="text-muted">ManageApp</h3>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12">
+        {{#if success_msg}}
+        <div class="alert alert-success">{{success_msg}}</div>
+        {{/if}} {{#if error_msg}}
+        <div class="alert alert-danger">{{error_msg}}</div>
+        {{/if}} {{#if error}}
+        <div class="alert alert-danger">{{error}}</div>
+        {{/if}} {{{body}}}
+      </div>
+
+
+    </div>
+
+    <footer class="footer">
+      <p>&copy; Nguyen Quang Duc - 12/2017 </p>
+    </footer>
+
+  </div>
+  <!-- /container -->
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<h2 class="page-header">Manage</h2>
+
+<div class="container" ng-app="showDevice">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th><center>MAC</center></th>
+                <th><center>IP</center></th>
+                <th><center>NAME</center></th>
+                <th><center>LOCATION</center></th>
+                <th><center>ACTION</center></th>
+            </tr>
+        </thead>
+        <tbody ng-controller="abc">
+            <tr ng-repeat="device in devices">
+                <td>{[{device._id}]}</td>
+                <td>{[{device.IP}]}</td>
+                <td>{[{device.name}]}</td>
+                <td>{[{device.location}]}</td>
+                <td>
+                    <button type="button" ng-click="sendDevice(device,$index)" id={[{$index}]}>Add  </button>
+                    <button type="button" style="display: none" ng-click="cancelDevice(device,$index)" class={[{$index}]}>Cancel</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

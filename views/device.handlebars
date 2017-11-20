@@ -1,0 +1,34 @@
+<h2 class="page-header">Devices</h2>
+    <div class="alert alert-danger" id="err"></div>
+
+<form method="post" action="/users/register">
+    <div class="form-group">
+        <label for="listDevice">Device List </label>
+        <select id="listDevice" name="listDevice" class="form-control">
+            <option value="-1">Select Device</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>MAC</label>
+        <input type="text" class="form-control" id="_id" name="_id" placeholder="MAC address...">
+    </div>
+    <div class="form-group">
+        <label>IP address</label>
+        <input type="text" class="form-control" id="IP" name="IP" placeholder="IP address...">
+    </div>
+    <div class="form-group">
+        <label>Device name</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Device name...">
+    </div>
+    <div class="form-group">
+        <label>Location</label>
+        <input type="text" class="form-control" id="location" name="location" placeholder="Location...">
+    </div>
+    <input type="button" value="ADD" id="btn_add" class="btn btn-default">
+    <input type="button" value="UPDATE" id="btn_update" class="btn btn-default">
+    <input type="button" value="DELETE" id="btn_delete" class="btn btn-default">
+    <input type="button" value="FIND" id="btn_find" class="btn btn-default">
+    <input type="button" value="CLEAR" id="btn_clear" class="btn btn-default">
+
+</form>
